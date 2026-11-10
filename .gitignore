@@ -1,9 +1,16 @@
 .venv/
 venv/
 __pycache__/
+**/__pycache__/
 *.pyc
 .env
 .env.*
+!.env.example
+.demo_credentials.json
+staticfiles/
+*.sqlite3
+deploy/*.env
+!deploy/production.env.example
 .vscode/
 .idea/
 dist/
