@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng nhập · DMS</title>
+  <style>
+    :root{--ink:#153d39;--muted:#667a75;--green:#245c4b;--cream:#f7f7f2;--line:#dce4dc}*{box-sizing:border-box}body{margin:0;background:var(--cream);font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink)}a{color:inherit}button,input{font:inherit}button:focus-visible,input:focus-visible{outline:3px solid #94c98b;outline-offset:3px}.login-layout{min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr}.story{background:#183f37;color:#fff;padding:42px 60px;display:flex;flex-direction:column;overflow:hidden;position:relative}.brand{font-size:23px;font-weight:800;display:flex;gap:12px;align-items:center;letter-spacing:.2px}.brand-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:11px;background:#c4dd9c;color:#173f35;font-size:21px}.story h1{font-size:clamp(35px,3.5vw,53px);line-height:1.17;font-weight:650;max-width:480px;margin:69px 0 20px;letter-spacing:-1.5px}.story p{color:#ceddd1;line-height:1.8;max-width:420px;font-size:15px;margin:0}.building-scene{margin-top:30px;max-height:280px;flex:1;min-height:175px;position:relative;display:flex;align-items:flex-end;justify-content:center;border-bottom:2px solid #7f9e75}.building{position:relative;border-radius:6px 6px 0 0;background:#d4d8af;width:37%;height:72%;padding:20px 17px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 15px}.building i{background:#365c4b;border-radius:2px;display:block;min-height:17px}.building.b2{width:33%;height:95%;background:#e9e5c8;margin-left:-9px;z-index:1;padding-top:27px}.building.b3{width:23%;height:59%;background:#94ac83;margin-left:-8px;padding:14px;grid-template-columns:repeat(2,1fr);gap:12px}.plant{position:absolute;left:2%;bottom:0;width:36px;height:105px;background:#597f59;border-radius:55% 55% 12% 12%;transform:rotate(-5deg)}.plant:after{content:"";position:absolute;left:14px;width:34px;height:72px;bottom:0;border-radius:60% 60% 0 0;background:#86a474;transform:rotate(20deg)}.sun{position:absolute;right:5%;top:7%;width:43px;height:43px;background:#dcce84;border-radius:50%}.story-foot{padding-top:26px;font-size:12px;color:#bbcbbf}.sign-in{display:flex;align-items:center;justify-content:center;padding:55px 38px}.login-card{width:100%;max-width:390px}.overline{font-size:11px;font-weight:700;color:#607b67;letter-spacing:2px;margin:0 0 16px}.login-card h2{font-size:31px;font-weight:650;letter-spacing:-.7px;margin:0 0 11px}.intro{color:var(--muted);font-size:14px;line-height:1.7;margin:0 0 34px}.field{margin-bottom:21px}.field label{display:block;font-size:13px;font-weight:650;margin-bottom:9px}.field input{width:100%;padding:14px 15px;border:1px solid #cbd7ce;border-radius:8px;background:#fff;color:var(--ink);height:49px}.field input::placeholder{color:#8c9a93;font-size:13px}.field input:focus{border-color:#527e54}.field-error{color:#a1342a;font-size:12px;margin-top:7px}.errorlist{padding-left:18px;margin:7px 0}.submit{background:var(--green);color:#fff;width:100%;padding:15px;border:0;border-radius:8px;font-weight:650;font-size:14px;cursor:pointer;margin-top:5px;transition:background .15s}.submit:hover{background:#174336}.notice{padding:13px 15px;margin:0 0 20px;border:1px solid #cdded0;border-radius:8px;background:#eaf2e6;color:#355a37;font-size:13px;line-height:1.6}.notice.error{color:#8f342c;background:#fff0ed;border-color:#e9c5bd}.support{font-size:12px;line-height:1.8;color:#738477;margin-top:26px;padding-top:23px;border-top:1px solid var(--line)}.roles{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.roles span{border:1px solid #d9e1d6;background:#f0f3eb;border-radius:5px;font-size:10px;padding:5px 8px;color:#536b57}.copyright{font-size:11px;color:#8b978c;margin-top:40px}
+    @media(max-width:850px){.story{padding:35px}.story h1{font-size:36px;margin-top:65px}.building-scene{max-height:220px}.sign-in{padding:40px 28px}}@media(max-width:640px){.login-layout{grid-template-columns:1fr}.story{padding:23px 25px}.brand{font-size:20px}.story h1{font-size:27px;margin:25px 0 10px;max-width:350px}.story p{font-size:12px}.building-scene,.story-foot{display:none}.sign-in{padding:38px 25px 35px}.login-card{max-width:420px}.login-card h2{font-size:27px}.intro{margin-bottom:25px}.copyright{margin-top:25px}}
+  </style>
+</head>
+<body>
+<main class="login-layout">
+  <section class="story" aria-label="Hệ thống quản lý ký túc xá">
+    <div class="brand"><span class="brand-icon" aria-hidden="true">▥</span>DMS<span style="font-weight:400;font-size:12px;opacity:.75;margin-left:4px">DORMITORY MANAGEMENT</span></div>
+    <h1>Một nơi để ở.<br>Một nơi để kết nối.</h1>
+    <p>Quản lý cuộc sống ký túc xá dễ dàng hơn.<br>Từ tìm phòng, đăng ký chỗ ở đến mọi hỗ trợ hằng ngày.</p>
+    <div class="building-scene" aria-hidden="true"><span class="sun"></span><span class="plant"></span><div class="building"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="building b2"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="building b3"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="story-foot">Không gian sống tốt hơn, hành trình học tập trọn vẹn hơn.</div>
+  </section>
+  <section class="sign-in"><div class="login-card">
+    <p class="overline">CHÀO MỪNG ĐẾN VỚI DMS</p>
+    <h2>Đăng nhập tài khoản</h2>
+    <p class="intro">Tiếp tục vào không gian ký túc xá của bạn.</p>
+    {% for message in messages %}<div class="notice{% if message.tags == 'error' %} error{% endif %}" role="status">{{ message }}</div>{% endfor %}
+    {% if form.non_field_errors %}<div class="notice error" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+    <form method="post">
+      {% csrf_token %}<input type="hidden" name="next" value="{{ next }}">
+      {% for field in form %}<div class="field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% for error in field.errors %}<div class="field-error" role="alert">{{ error }}</div>{% endfor %}</div>{% endfor %}
+      <button class="submit" type="submit">Đăng nhập <span aria-hidden="true" style="float:right">→</span></button>
+    </form>
+    <div class="support">Sử dụng tài khoản được cấp bởi Ban quản lý.<br>Nếu cần cấp lại mật khẩu, vui lòng liên hệ Quản trị viên.<div class="roles"><span>SINH VIÊN</span><span>BAN QUẢN LÝ</span><span>QUẢN TRỊ VIÊN</span></div></div>
+    <div class="copyright">DMS · Hệ thống quản lý ký túc xá</div>
+  </div></section>
+</main>
+</body></html>

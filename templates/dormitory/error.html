@@ -1,0 +1,2 @@
+{% extends 'base.html' %}
+{% block content %}<section class="panel empty-state error-state"><span class="error-code">{{ status_code|default:'403' }}</span><h1>{{ title|default:'Bạn không thể thực hiện thao tác này' }}</h1><p>{{ message|default:'Vui lòng quay lại trang tổng quan và chọn thao tác phù hợp với tài khoản của bạn.' }}</p><a class="button button-primary" href="{% url 'dashboard' %}">Về tổng quan{% include 'dormitory/_icon.html' with name='arrow' %}</a></section>{% endblock %}

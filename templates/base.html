@@ -1,0 +1,54 @@
+{% load static %}
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d34">
+  <title>{% block title %}{{ title|default:"Tổng quan" }}{% endblock %} · DMS</title>
+  <link rel="stylesheet" href="{% static 'css/dms.css' %}?v=20261103-3">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Đến nội dung chính</a>
+  <button class="nav-backdrop" type="button" aria-label="Đóng thanh điều hướng" data-nav-close></button>
+  <aside class="sidebar" id="sidebar" aria-label="Điều hướng chính">
+    <a class="brand" href="{% url 'dashboard' %}"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>DMS<span class="brand-caption">QUẢN LÝ KÝ TÚC XÁ</span></span></a>
+    <div class="sidebar-label">KHÔNG GIAN CỦA BẠN</div>
+    <nav class="nav-list">
+      <a href="{% url 'dashboard' %}" class="nav-item {% if section == 'dashboard' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='grid' %}<span>Tổng quan</span></a>
+      <a href="{% url 'rooms' %}" class="nav-item {% if section == 'rooms' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='building' %}<span>Phòng ở</span></a>
+      <a href="{% url 'applications' %}" class="nav-item {% if section == 'applications' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='clipboard' %}<span>Đơn đăng ký</span></a>
+      <a href="{% url 'contracts' %}" class="nav-item {% if section == 'contracts' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='document' %}<span>Hợp đồng</span></a>
+      <a href="{% url 'invoices' %}" class="nav-item {% if section == 'invoices' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='wallet' %}<span>Hóa đơn</span></a>
+      <a href="{% url 'maintenance' %}" class="nav-item {% if section == 'maintenance' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='tool' %}<span>Sửa chữa</span></a>
+      <a href="{% url 'transfers' %}" class="nav-item {% if section == 'transfers' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='arrows' %}<span>Chuyển phòng</span></a>
+      <a href="{% url 'notices' %}" class="nav-item {% if section == 'notices' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='bell' %}<span>Thông báo</span>{% if unread_count %}<span class="nav-count">{{ unread_count }}</span>{% endif %}</a>
+    </nav>
+    {% if request.user.role == 'ADMIN' %}
+    <div class="sidebar-label nav-section-label">QUẢN TRỊ</div>
+    <nav class="nav-list">
+      <a href="{% url 'accounts_list' %}" class="nav-item {% if section == 'accounts' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='users' %}<span>Tài khoản</span></a>
+      <a href="{% url 'audit_logs' %}" class="nav-item {% if section == 'audit_logs' %}active{% endif %}">{% include 'dormitory/_icon.html' with name='clock' %}<span>Nhật ký hoạt động</span></a>
+    </nav>
+    {% endif %}
+    <div class="sidebar-bottom">
+      <div class="sidebar-note"><span class="live-dot"></span>Một nơi ở. Nhiều kết nối.</div>
+      <form action="{% url 'accounts:logout' %}" method="post" class="logout-form">{% csrf_token %}<button type="submit">{% include 'dormitory/_icon.html' with name='logout' %}Đăng xuất</button></form>
+    </div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-left"><button class="icon-button mobile-menu" type="button" aria-label="Mở điều hướng" aria-controls="sidebar" aria-expanded="false" data-nav-toggle>{% include 'dormitory/_icon.html' with name='menu' %}</button><span class="breadcrumb">Không gian quản lý <span>/</span> <strong>{{ title|default:"Tổng quan" }}</strong></span></div>
+      <div class="topbar-right"><span class="today-label">{% now 'd/m/Y' %}</span><a class="icon-button notification-button" href="{% url 'notices' %}" aria-label="Thông báo">{% include 'dormitory/_icon.html' with name='bell' %}{% if unread_count %}<i></i>{% endif %}</a><span class="topbar-divider"></span><a class="role-chip" href="{% url 'accounts:password_change' %}" title="Đổi mật khẩu" aria-label="Đổi mật khẩu tài khoản">{{ request.user.get_role_display }}</a><span class="avatar avatar-small">{{ request.user.email|first|upper }}</span></div>
+    </header>
+    <main id="main-content" class="main-content">
+      {% if messages %}<div class="messages" aria-live="polite">{% for message in messages %}<div class="alert alert-{{ message.tags|default:'info' }}" {% if message.tags == 'error' %}role="alert"{% else %}role="status"{% endif %}>{% include 'dormitory/_icon.html' with name='info' %}<span>{{ message }}</span><button type="button" aria-label="Đóng thông báo" data-dismiss-alert>×</button></div>{% endfor %}</div>{% endif %}
+      {% block content %}{% endblock %}
+      <footer class="page-footer"><span>DMS · Hệ thống quản lý ký túc xá</span><span>Thuận tiện hơn mỗi ngày.</span></footer>
+    </main>
+  </div>
+  <script src="{% static 'js/app.js' %}" defer></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
