@@ -1,0 +1,17 @@
+.git
+.venv
+venv
+__pycache__
+**/__pycache__
+*.pyc
+.env
+.env.*
+*.env
+deploy/*.env
+.demo_credentials.json
+staticfiles
+*.log
+.vscode
+.idea
+dist
+build
