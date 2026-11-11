@@ -20,7 +20,7 @@ COPY requirements.txt .
 RUN python -m pip install --no-cache-dir --no-index --find-links=/wheels -r requirements.txt \
     && rm -rf /wheels
 COPY --chown=app:app . .
-RUN chmod +x /app/deploy/entrypoint.sh
+RUN mkdir -p /app/staticfiles && chown -R app:app /app && chmod +x /app/deploy/entrypoint.sh
 USER app
 EXPOSE 8000
 ENTRYPOINT ["/app/deploy/entrypoint.sh"]
